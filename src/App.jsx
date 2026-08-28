@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import { CVForm, DropDownSection, Testing } from "./CVForm.jsx";
+import { CVForm, DropDownSection } from "./CVForm.jsx";
 import { Resume } from "./Resume.jsx";
 
 function App() {
@@ -8,8 +8,15 @@ function App() {
     <>
     <div className="app-container">
       <CVForm>
-        <DropDownSection sectionName="Personal Information"/>
-        <Testing/>
+        <DropDownSection sectionName="Personal Information">
+          
+        </DropDownSection>
+        <DropDownSection sectionName="Summary"> 
+
+        </DropDownSection>
+        <DropDownSection sectionName="Education"> 
+
+        </DropDownSection>
       </CVForm>
       <Resume>
       </Resume>

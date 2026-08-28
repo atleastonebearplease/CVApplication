@@ -13,8 +13,24 @@
 
 .cv-form { 
   background-color: greenyellow;
+  display: flex;
+  flex-direction: column;
+  gap: var(--margin-m);
 }
 
 .resume {
   background-color: yellowgreen;
+}
+
+.drop-down-section {
+  background-color: whitesmoke;
+  border-radius: var(--margin-xs);
+  border-width: 1px;
+
+  border: 1px solid grey;
+}
+
+.drop-down-section > h1 {
+  border-bottom: 1px solid grey;
+  padding: var(--margin-xxs) var(--margin-xxs) var(--margin-xxs) var(--margin-s);
 }

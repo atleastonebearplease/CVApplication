@@ -8,7 +8,7 @@ Planning:
         Instead of having a bunch of layers, we can have a drop down card, pass in the children, and then keep the information on a higer level so that we aren't passing around a ton of objects
 
         We need to figure out, once we have the strcutre laid out, if we are going to be passing in objects that contain all of the information for that form section. I think that's the easiest. Have a "Personal Information" object. Have a "Summary" object. Etc. Then we just use those objects to compose the Resume if they exist. The resume itself can be composed of many objects as well with their own styling, or perhaps even plain HTML. I think once we make the structure of the drop downs it will become more obvious.
-        ☐ CVForm component at the top to house all of the sections and control if a drop down is showing or not
+        ✔ CVForm component at the top to house all of the sections and control if a drop down is showing or not @done(26-08-28 10:10)
             ☐ Make a DropDownSection component, pass in the body of it
                 This would mean like youd name the DropDownSection "Personal Information" and then you'd pass in a PersonalInformationCard component into the body
 
@@ -18,10 +18,16 @@ Planning:
                 ☐ EducationForm
                 ☐ WorkExperienceForm
                 ☐ SkillsForm
-        ☐ Resume component
+        ✔ Resume component @done(26-08-28 10:09)
             House the resume items
             ☐ ResumeSection
 
 
 TODO: 
-    ☐ Create the CVForm and the Resume component. Have them split the screen in two and be colored in. 
+    ✔ Create the CVForm and the Resume component. Have them split the screen in two and be colored in. @done(26-08-28 10:08)
+    ☐ Let's work on makinga drop down section card. Just the card mind, doesn't have to do any dropping for the moment.
+
+
+
+REMEMBER: WE ONLY NEED TO GET THE FUNCTION GOING AND ENOUGH SPACING/POSITIONING TO MAKE SENSE:
+    WORRY ABOUT STYLING LATER

@@ -27,10 +27,41 @@
   border-radius: var(--margin-xs);
   border-width: 1px;
 
+  padding: var(--margin-s);
+
   border: 1px solid grey;
 }
 
 .drop-down-section > h1 {
   border-bottom: 1px solid grey;
-  padding: var(--margin-xxs) var(--margin-xxs) var(--margin-xxs) var(--margin-s);
+  padding: 0 var(--margin-xxs) var(--margin-s) var(--margin-xxs);
 }
+
+.form-container {
+  padding-top: var(--margin-s);
+  padding-bottom: var(--margin-s);
+  display: flex;
+  flex-direction: column;
+  gap: var(--margin-m);
+}
+
+.label-input-group {
+  display: flex; 
+  flex-direction: column;
+  margin-left: var(--margin-m);
+  margin-right: var(--margin-m);
+}
+
+.double-input-group-container {
+  display: flex;
+}
+
+.double-input-group-container > * {
+  flex: 1 1 0;
+}
+
+
+/* 
+ I think we just need two CSS classes for this. Either it can be a div that divides the space evenly
+ between two inputs, or it is a single input that spans the line
+*/

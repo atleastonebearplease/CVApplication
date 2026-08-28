@@ -1,0 +1,27 @@
+Planning: 
+    Step 1 Break the UI into a component hiearchy: 
+        ☐ On paper, figure out what components you're going to need for this
+        ☐ Put those components into React functions and actually make the structure of the app happen.
+            This does not have to be pretty yet. You can move them around so that they are at least stacked on each other correctly, but don't bother getting them to look nice yet. They may get moved around anyways.
+        Place your sections here
+
+        Instead of having a bunch of layers, we can have a drop down card, pass in the children, and then keep the information on a higer level so that we aren't passing around a ton of objects
+
+        We need to figure out, once we have the strcutre laid out, if we are going to be passing in objects that contain all of the information for that form section. I think that's the easiest. Have a "Personal Information" object. Have a "Summary" object. Etc. Then we just use those objects to compose the Resume if they exist. The resume itself can be composed of many objects as well with their own styling, or perhaps even plain HTML. I think once we make the structure of the drop downs it will become more obvious.
+        ☐ CVForm component at the top to house all of the sections and control if a drop down is showing or not
+            ☐ Make a DropDownSection component, pass in the body of it
+                This would mean like youd name the DropDownSection "Personal Information" and then you'd pass in a PersonalInformationCard component into the body
+
+                Divide these out like this?:
+                ☐ PersonalInformationForm
+                ☐ SummaryForm
+                ☐ EducationForm
+                ☐ WorkExperienceForm
+                ☐ SkillsForm
+        ☐ Resume component
+            House the resume items
+            ☐ ResumeSection
+
+
+TODO: 
+    ☐ Create the CVForm and the Resume component. Have them split the screen in two and be colored in. 

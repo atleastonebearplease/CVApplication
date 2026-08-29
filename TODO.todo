@@ -25,7 +25,13 @@ Planning:
 
 TODO: 
     ✔ Create the CVForm and the Resume component. Have them split the screen in two and be colored in. @done(26-08-28 10:08)
-    ☐ Let's work on makinga drop down section card. Just the card mind, doesn't have to do any dropping for the moment.
+    ✔ Let's work on makinga drop down section card. Just the card mind, doesn't have to do any dropping for the moment. @done(26-08-28 11:18)
+    ✔ From here I think we can just get the individual forms going. We can keep it pretty simple. We either have a full width input, or have a group of two inputs, with the space divided between. Each gets a label. May need to group inputs with their labels, then just use flex-column to arrange. @done(26-08-28 13:35)
+    ☐ Fill out remaining forms:
+        ☐ Summary
+        ☐ Education
+        ☐ Work Experience
+        ☐ Skills
 
 
 

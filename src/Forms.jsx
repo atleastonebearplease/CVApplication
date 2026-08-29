@@ -1,8 +1,16 @@
 function LabelInputGroup({id, labelText, placeholder="", type="text"}) {
+    let input;
+
+    if(type === "textarea") {
+        input = <textarea id={id} placeholder={placeholder}></textarea>
+    } else {
+        input = <input type={type} id={id} placeholder={placeholder}/>
+    }
+    
     return (
         <div className="label-input-group">
             <label htmlFor={id}>{labelText}</label>
-            <input type={type} id={id} placeholder={placeholder}/>
+            {input}
         </div>
     )
 }
@@ -53,3 +61,26 @@ export function PersonalInformationForm() {
         </div>
     )
 }
+
+export function SummaryForm() {
+    return (
+        <div className="form-container">
+            <LabelInputGroup
+            id="summary"
+            labelText="Summary"
+            placeholder="Your objective, why you're a good fit, etc."
+            type="textarea">
+            </LabelInputGroup>
+        </div>
+    )
+}
+
+
+/* 
+<LabelInputGroup 
+id="" 
+labelText="" 
+placeholder="" 
+type="">
+</LabelInputGroup>
+*/

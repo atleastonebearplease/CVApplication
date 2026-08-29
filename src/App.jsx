@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import { CVForm, DropDownSection } from "./CVForm.jsx";
 import { Resume } from "./Resume.jsx";
-import { PersonalInformationForm } from "./Forms.jsx";
+import { PersonalInformationForm, SummaryForm} from "./Forms.jsx";
 
 function App() {
   return (
@@ -13,10 +13,16 @@ function App() {
           <PersonalInformationForm/>
         </DropDownSection>
         <DropDownSection sectionName="Summary"> 
-
+          <SummaryForm/>
         </DropDownSection>
         <DropDownSection sectionName="Education"> 
 
+        </DropDownSection>
+        <DropDownSection sectionName="Work Experience">
+
+        </DropDownSection>
+        <DropDownSection sectionName="Skills">
+          
         </DropDownSection>
       </CVForm>
       <Resume>

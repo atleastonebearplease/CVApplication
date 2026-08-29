@@ -37,6 +37,11 @@ function DateInputGroup({ id, labelText, labelTip }) {
         )
 }
 
+
+function getLabelID(labelText, ID) {
+    return labelText + "-" + ID;
+}
+
 export function PersonalInformationForm() {
     return (
         <div className="form-container">
@@ -134,10 +139,43 @@ export function EducationForm({ uniqueID }) {
     )
 }
 
-function getLabelID(labelText, ID) {
-    return labelText + "-" + ID;
+export function WorkExperienceForm({uniqueID}) {
+    return (
+         <div className="form-container">
+            <LabelInputGroup 
+            id={getLabelID("company-name", uniqueID)} 
+            labelText="Company Name" 
+            placeholder="e.g. Apple inc" 
+            >
+            </LabelInputGroup>
+            <div className="double-input-group-container">
+                <DateInputGroup
+                id={getLabelID("start-date", uniqueID)}
+                labelText = "Start Date"
+                >
+                </DateInputGroup>
+                <DateInputGroup
+                id={getLabelID("end-date", uniqueID)}
+                labelText = "End Date"
+                labelTip={<i style={{fontSize: "80%"}}>Leave blank for Present</i>}
+                >
+                </DateInputGroup>
+            </div>
+            <LabelInputGroup
+            id={getLabelID("job-title", uniqueID)} 
+            labelText="Job Title" 
+            placeholder="e.g. Senior Data Engineer"
+            >
+            </LabelInputGroup>
+            <LabelInputGroup 
+            id={getLabelID("responsibilities", uniqueID)} 
+            labelText="Responsibilities - New lines are new bullet points" 
+            placeholder={"e.g.Planning new features\nImplementing new features"}
+            type="textarea">
+            </LabelInputGroup>
+        </div>
+    )
 }
-
 
 /* 
 <LabelInputGroup 

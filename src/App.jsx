@@ -2,11 +2,12 @@ import { useState } from 'react';
 import './App.css';
 import { CVForm, DropDownSection } from "./CVForm.jsx";
 import { Resume } from "./Resume.jsx";
-import { PersonalInformationForm, SummaryForm, EducationForm} from "./Forms.jsx";
+import { PersonalInformationForm, SummaryForm, EducationForm, WorkExperienceForm} from "./Forms.jsx";
 
 function App() {
   //TODO: Temporary variable for UUID for education
   const educationID = crypto.randomUUID();
+  const workExperienceID = crypto.randomUUID();
 
   return (
     <>
@@ -22,10 +23,11 @@ function App() {
           {/* //TODO: Update to use a unique ID for each created date input group as well as each created education 
           //section piece. For now we can pass it in and pass to the DateInputGroup as a prop */}
           <EducationForm uniqueID={educationID}></EducationForm>
-          <button>Add a new school</button>
+          <button>Add Another Education</button>
         </DropDownSection>
         <DropDownSection sectionName="Work Experience">
-
+          <WorkExperienceForm uniqueID={workExperienceID}></WorkExperienceForm>
+          <button>Add Another Work Experience</button>
         </DropDownSection>
         <DropDownSection sectionName="Skills">
           

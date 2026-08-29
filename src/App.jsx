@@ -2,12 +2,13 @@ import { useState } from 'react';
 import './App.css';
 import { CVForm, DropDownSection } from "./CVForm.jsx";
 import { Resume } from "./Resume.jsx";
-import { PersonalInformationForm, SummaryForm, EducationForm, WorkExperienceForm} from "./Forms.jsx";
+import { PersonalInformationForm, SummaryForm, EducationForm, WorkExperienceForm, SkillsForm} from "./Forms.jsx";
 
 function App() {
   //TODO: Temporary variable for UUID for education
   const educationID = crypto.randomUUID();
   const workExperienceID = crypto.randomUUID();
+  const skillsID = crypto.randomUUID();
 
   return (
     <>
@@ -30,7 +31,7 @@ function App() {
           <button>Add Another Work Experience</button>
         </DropDownSection>
         <DropDownSection sectionName="Skills">
-          
+          <SkillsForm uniqueID={skillsID}></SkillsForm>
         </DropDownSection>
       </CVForm>
       <Resume>

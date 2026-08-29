@@ -177,6 +177,19 @@ export function WorkExperienceForm({uniqueID}) {
     )
 }
 
+export function SkillsForm({uniqueID}) {
+    return (
+        <div className="form-container">
+            <LabelInputGroup 
+            id={getLabelID("technical-skills", uniqueID)} 
+            labelText="Technical Skills - New lines are new bullet points" 
+            placeholder={"e.g.React\nJavascript"}
+            type="textarea">
+            </LabelInputGroup>
+        </div>
+    )
+}
+
 /* 
 <LabelInputGroup 
 id={getLabelID("", uniqueID)} 

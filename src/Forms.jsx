@@ -15,6 +15,28 @@ function LabelInputGroup({id, labelText, placeholder="", type="text"}) {
     )
 }
 
+
+/*  TODO: Convert this over to the regular input group. All you'd have to do is just include the label 
+tip portion. The label tip is useful elsewhere and could be included pretty easy
+*/
+function DateInputGroup({ id, labelText, labelTip }) {
+    let label = labelText;
+    
+    //TODO: Update label tip to have it's own CSS class to control the sizing and vert align
+    if(labelTip) {
+        label = <>{labelText} {labelTip}</>
+    }
+    
+    return (
+            <LabelInputGroup 
+            id={id}
+            labelText={label}
+            placeholder="" 
+            type="month">
+            </LabelInputGroup>
+        )
+}
+
 export function PersonalInformationForm() {
     return (
         <div className="form-container">
@@ -75,10 +97,51 @@ export function SummaryForm() {
     )
 }
 
+export function EducationForm({ uniqueID }) {
+    return (
+        <div className="form-container">
+            <LabelInputGroup 
+            id={getLabelID("school-name", uniqueID)}
+            labelText="School Name" 
+            placeholder="e.g. Texas State University">
+            </LabelInputGroup>
+            <div className="double-input-group-container">
+                <DateInputGroup
+                id={getLabelID("start-date", uniqueID)}
+                labelText = "Start Date"
+                >
+                </DateInputGroup>
+                <DateInputGroup
+                id={getLabelID("end-date", uniqueID)}
+                labelText = "End Date"
+                labelTip={<i style={{fontSize: "80%"}}>Leave blank for Present</i>}
+                >
+                </DateInputGroup>
+            </div>
+            <LabelInputGroup 
+            id={getLabelID('degree', uniqueID)} 
+            labelText="Degree / Program" 
+            placeholder="e.g. Bachelor's of Computer Science" 
+            >
+            </LabelInputGroup>
+            <LabelInputGroup 
+            id={getLabelID("achievements", uniqueID)} 
+            labelText="Achievements - New lines are new bullet points" 
+            placeholder={"e.g.4.0 GPA\nSuma Cum Laude"}
+            type="textarea">
+            </LabelInputGroup>
+        </div>
+    )
+}
+
+function getLabelID(labelText, ID) {
+    return labelText + "-" + ID;
+}
+
 
 /* 
 <LabelInputGroup 
-id="" 
+id={getLabelID("", uniqueID)} 
 labelText="" 
 placeholder="" 
 type="">

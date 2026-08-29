@@ -60,6 +60,10 @@
   flex: 1 1 0;
 }
 
+.date-input-group-conatiner > * {
+  flex: 1 1 0;
+}
+
 
 /* 
  I think we just need two CSS classes for this. Either it can be a div that divides the space evenly

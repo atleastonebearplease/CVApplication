@@ -1,23 +1,31 @@
 Planning: 
     Step 1 Break the UI into a component hiearchy: 
-        ☐ PersonalInformationForm
-        ☐ SummaryForm
-        ☐ EducationForm
-        ☐ WorkExperienceForm
-        ☐ SkillsForm
+        ✔ PersonalInformationForm @done(26-08-29 10:35)
+        ✔ SummaryForm @done(26-08-29 10:35)
+        ✔ EducationForm @done(26-08-29 10:35)
+        ✔ WorkExperienceForm @done(26-08-29 10:35)
+        ✔ SkillsForm @done(26-08-29 10:35)
 
-        ☐ ResumeSection
+        Resume Viewer:
+        
 
 Later: 
     ☐ Use CryptoUUID when making a new education component
     ☐ Update TextArea height in CSS to be at least three lines
 
 TODO: 
-    ☐ Fill out remaining forms:
-        ☐ Summary
-        ☐ Education
-        ☐ Work Experience
-        ☐ Skills
+    ✔ Fill out remaining forms: @done(26-08-29 10:38)
+        ✔ Summary @done(26-08-29 10:38)
+        ✔ Education @done(26-08-29 10:38)
+        ✔ Work Experience @done(26-08-29 10:38)
+        ✔ Skills @done(26-08-29 10:38)
+    ☐ ResumeViewer - NEXT
+        We'll simply have a header, and contained witin will be various ways to display the data. 
+        We need only once section header. We can probably do most of this in pure HTML without too many components.
+        It should be simple enough to do just passing in the data. Not displaying the data when it doesn't exist. If we need to, we can build up variables before, then compose them. That'll make the conditional rendering more sensible
+        ☐ Resume Object
+          Just need to add all of the data that is going into the various sections into an object. We can refer to the resume itself. I think we should make a named object for this one, or do it outside of a function at first. Or do we need some kind of helper function? 
+    
 
 Archive:
   ✔ On paper, figure out what components you're going to need for this @done(26-08-29 08:29) @project(Planning.Step 1 Break the UI into a component hiearchy)

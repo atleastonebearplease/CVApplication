@@ -2,11 +2,15 @@ import "./resume.css";
 
 export function Resume({resumeData}) {
 
-    let personalInfo = resumeData.personalInformation;
-    let summary = resumeData.summary;
-    let educationInfo = resumeData.educationInformation;
-    let workExperience = resumeData.workExperience;
-    let skills = resumeData.skills;
+    let resumeDeepCopy = structuredClone(resumeData);
+
+    let personalInfo = resumeDeepCopy.personalInformation;
+    let summary = resumeDeepCopy.summary;
+    let educationInfo = resumeDeepCopy.educationInformation;
+    let workExperience = resumeDeepCopy.workExperience;
+
+    //TEST CONDITIONAL RENDER OF SKILLS
+    resumeDeepCopy.skills = "";
 
     
 //TODO: Add Keys to all objects upon creation
@@ -47,12 +51,25 @@ export function Resume({resumeData}) {
                     </ul>
                 </>
             })}
-            <h1>Skills</h1>
-            <ul>
-                {skills.map((skill) => {
-                    return (<li>{skill}</li>)
-                })}
-            </ul>
+            <Skills resumeData = {resumeData}/>
         </div>
     )
+}
+
+
+function Skills({resumeData}) {
+    if(resumeData.skills) {
+        return (
+            <>
+            <h1>Skills</h1>
+                <ul>
+                    {resumeData.skills.map((skill) => {
+                        return (<li>{skill}</li>);
+                    })}
+                </ul>
+            </>
+        )
+    } else {
+        return "";
+    }
 }

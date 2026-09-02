@@ -7,7 +7,6 @@ export function Resume({resumeData}) {
 
     let personalInfo = resumeDeepCopy.personalInformation;
     let summary = resumeDeepCopy.summary;
-    let educationInfo = resumeDeepCopy.educationInformation;
 
     //TEST CONDITIONAL RENDERS HERE
 
@@ -24,41 +23,72 @@ export function Resume({resumeData}) {
             <ul>
                 <li>{summary}</li>
             </ul>
-            <h1>Education</h1>
-            {educationInfo.schoolObjects.map((school) => {
-                return <>
-                    <h3>{school.schoolName}</h3>
-                    <p>{school.startDate} - {school.endDate ? school.endDate : "Present"}</p>
-                    <h4>{school.degree}</h4>
-                    <ul>
-                        {school.achievements.map((ach) => {
-                            return (<li>{ach}</li>);
-                        })}
-                    </ul>
-                </>
-            })}
+            <Education resumeData={resumeData}/>
             <WorkExperience resumeData = {resumeData}/>
             <Skills resumeData = {resumeData}/>
         </div>
     )
 }
 
-function WorkExperience({resumeData}) {
+function Education({resumeData}) {
+    //TESTING: Remove after done testing
+    let resumeDeepCopy = structuredClone(resumeData);
 
+    if(resumeDeepCopy.educationInformation.schoolObjects.length > 0) {
+        let schools = resumeDeepCopy.educationInformation.schoolObjects;
+
+        let schoolItems = [];
+
+        for(let school of schools) {
+            schoolItems.push(
+                //TODO: Add unique key per new school item
+                <Fragment>
+                    {school.schoolName && <h3>{school.schoolName}</h3>}
+                    {school.startDate && (
+                        <p className="school-dates">
+                            {school.startDate} - {school.endDate ? school.endDate : "Present"}
+                        </p>
+                    )}
+                    {school.degree && <h4>{school.degree}</h4>}
+                    {school.achievements.length > 0 && (
+                        <ul>
+                            {school.achievements.map((ach)=> {
+                                return (<li>{ach}</li>);
+                            })}
+                        </ul>
+                    )}
+                </Fragment>
+            )
+        }
+
+        return (
+            <>
+            <h1>Education</h1>
+            {schoolItems}
+            </>
+        )
+    } else {
+        return null;
+    }
+}
+
+function WorkExperience({resumeData}) {
+    //TESTING: Remove after done testing
     let resumeDeepCopy = structuredClone(resumeData);
 
     if(resumeDeepCopy.workExperience.workObjects.length > 0) {
         let workObjs = resumeDeepCopy.workExperience.workObjects;
 
         /* 
-        //TODO: Must have an empty div to properly display date and time. This will be done with CSS class
+        //TODO: Just need flexbox and margin-left: auto to make dates stay to right
          */
 
         let workExperienceItems = [];
 
         for(let workObj of workObjs) {
             workExperienceItems.push(
-                <Fragment key={workObj.companyName}>
+                //TODO: Add unique key per new work item
+                <Fragment>
                     {workObj.companyName && <h3>{workObj.companyName}</h3>}
                     {workObj.startDate && (
                         <p className = "work-dates">
@@ -87,22 +117,6 @@ function WorkExperience({resumeData}) {
         return null;
     }
 }
-
-/* 
-<h1>Work Experience</h1>
-{workExperience.workObjects.map((workObj) => {
-    return <>
-        <h3>{workObj.companyName}</h3>
-        <p>{workObj.startDate} - {workObj.endDate ? workObj.endDate : "Present"}</p>
-        <h4>{workObj.jobTitle}</h4>
-        <ul>
-            {workObj.responsibilities.map((rsp) => {
-                return (<li>{rsp}</li>);
-            })}
-        </ul>
-    </>
-})}
-*/
 
 function Skills({resumeData}) {
     if(resumeData.skills) {

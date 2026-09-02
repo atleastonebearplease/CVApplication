@@ -30,6 +30,21 @@ export function Resume({resumeData}) {
     )
 }
 
+function Summary({resumeData}) {
+    if(resumeData.summary) {
+        return (
+            <Fragment>
+                <h1>Summary</h1>
+                <ul>
+                    <li>{resumeData.summary}</li>
+                </ul>
+            </Fragment>
+        )
+    } else {
+        return null;
+    }
+}
+
 function Education({resumeData}) {
     //TESTING: Remove after done testing
     let resumeDeepCopy = structuredClone(resumeData);

@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import "./resume.css";
 import { Fragment } from "react";
+import { joinWithPipes } from "./utilities.jsx";
 
 export function Resume({resumeData}) {
 
@@ -13,17 +15,40 @@ export function Resume({resumeData}) {
 //TODO: Add Keys to all objects upon creation
     return (
         <div className="resume">
-            <div className="personal-info">
-                <h1 className="name">{personalInfo.fullName}</h1>
-                <p>{personalInfo.location} | {personalInfo.phoneNumber}</p>
-                <p><a href={personalInfo.linkedInProfile}>LinkedIn</a> | <a href={personalInfo.githubProfile}>GitHub</a> | {personalInfo.emailAddress}</p>                
-            </div>
+            <PersonalInfo resumeData={resumeData}/>
             <Summary resumeData={resumeData}/>
             <Education resumeData={resumeData}/>
             <WorkExperience resumeData = {resumeData}/>
             <Skills resumeData = {resumeData}/>
         </div>
     )
+}
+
+function PersonalInfo({resumeData}) {
+    if(resumeData.personalInformation) {
+        let info = resumeData.personalInformation;
+
+        let contactParts = [info.location, info.phoneNumber];
+
+        let linkParts = [
+            info.linkedInProfile && <a href={info.linkedInProfile}>LinkedIn</a>,
+            info.githubProfile && <a href={info.githubProfile}>GitHub</a>,
+            info.emailAddress
+        ];
+
+
+        return (
+            <Fragment>
+                <div className="personal-info">
+                    {info.fullName && <h1 className="name">{info.fullName}</h1>}
+                    {contactParts.some(Boolean) && <p>{joinWithPipes(contactParts)}</p>}
+                    {linkParts.some(Boolean) && <p>{joinWithPipes(linkParts)}</p>}
+                </div>
+            </Fragment>
+        )
+    } else {
+        return null;
+    }
 }
 
 function Summary({resumeData}) {

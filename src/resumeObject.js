@@ -4,8 +4,8 @@ export const resumeObject = {
         emailAddress: "alexwalters387@gmail.com", 
         phoneNumber: "7312203888",
         location: "Huntingdon, TN",
-        linkedInProfile: "", 
-        githubProfile: ""
+        linkedInProfile: "linkedin.com", 
+        githubProfile: "github.com/atleastonebearplease"
     },
     summary: "I am da best at everything",
     educationInformation: {

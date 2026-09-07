@@ -3,6 +3,7 @@ import './App.css';
 import { CVForm, DropDownSection } from "./CVForm.jsx";
 import { Resume } from "./Resume.jsx";
 import { PersonalInformationForm, SummaryForm, EducationForm, WorkExperienceForm, SkillsForm} from "./Forms.jsx";
+import { resumeObject } from "./resumeObject.js";
 
 function App() {
   //TODO: Temporary variable for UUID for education
@@ -34,7 +35,7 @@ function App() {
           <SkillsForm uniqueID={skillsID}></SkillsForm>
         </DropDownSection>
       </CVForm>
-      <Resume>
+      <Resume resumeData={resumeObject}>
       </Resume>
     </div>
     </>

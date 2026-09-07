@@ -6,7 +6,6 @@ export function Resume({resumeData}) {
     let resumeDeepCopy = structuredClone(resumeData);
 
     let personalInfo = resumeDeepCopy.personalInformation;
-    let summary = resumeDeepCopy.summary;
 
     //TEST CONDITIONAL RENDERS HERE
 
@@ -19,10 +18,7 @@ export function Resume({resumeData}) {
                 <p>{personalInfo.location} | {personalInfo.phoneNumber}</p>
                 <p><a href={personalInfo.linkedInProfile}>LinkedIn</a> | <a href={personalInfo.githubProfile}>GitHub</a> | {personalInfo.emailAddress}</p>                
             </div>
-            <h1>Summary</h1>
-            <ul>
-                <li>{summary}</li>
-            </ul>
+            <Summary resumeData={resumeData}/>
             <Education resumeData={resumeData}/>
             <WorkExperience resumeData = {resumeData}/>
             <Skills resumeData = {resumeData}/>

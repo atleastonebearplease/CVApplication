@@ -1,27 +1,68 @@
 Planning: 
     Step 1 Break the UI into a component hiearchy: 
-        ☐ On paper, figure out what components you're going to need for this
-        ☐ Put those components into React functions and actually make the structure of the app happen.
-            This does not have to be pretty yet. You can move them around so that they are at least stacked on each other correctly, but don't bother getting them to look nice yet. They may get moved around anyways.
-        Place your sections here
+        ✔ PersonalInformationForm @done(26-08-29 10:35)
+        ✔ SummaryForm @done(26-08-29 10:35)
+        ✔ EducationForm @done(26-08-29 10:35)
+        ✔ WorkExperienceForm @done(26-08-29 10:35)
+        ✔ SkillsForm @done(26-08-29 10:35)
 
-        Instead of having a bunch of layers, we can have a drop down card, pass in the children, and then keep the information on a higer level so that we aren't passing around a ton of objects
+        Resume Viewer:
+        
 
-        We need to figure out, once we have the strcutre laid out, if we are going to be passing in objects that contain all of the information for that form section. I think that's the easiest. Have a "Personal Information" object. Have a "Summary" object. Etc. Then we just use those objects to compose the Resume if they exist. The resume itself can be composed of many objects as well with their own styling, or perhaps even plain HTML. I think once we make the structure of the drop downs it will become more obvious.
-        ☐ CVForm component at the top to house all of the sections and control if a drop down is showing or not
-            ☐ Make a DropDownSection component, pass in the body of it
-                This would mean like youd name the DropDownSection "Personal Information" and then you'd pass in a PersonalInformationCard component into the body
-
-                Divide these out like this?:
-                ☐ PersonalInformationForm
-                ☐ SummaryForm
-                ☐ EducationForm
-                ☐ WorkExperienceForm
-                ☐ SkillsForm
-        ☐ Resume component
-            House the resume items
-            ☐ ResumeSection
-
+Later: 
+    ☐ Use CryptoUUID when making a new education component
+    ☐ Update TextArea height in CSS to be at least three lines
+    ☐ Add keys during object creation for mapped items 
 
 TODO: 
-    ☐ Create the CVForm and the Resume component. Have them split the screen in two and be colored in. 
+    ✔ Fill out remaining forms: @done(26-08-29 10:38)
+        ✔ Summary @done(26-08-29 10:38)
+        ✔ Education @done(26-08-29 10:38)
+        ✔ Work Experience @done(26-08-29 10:38)
+        ✔ Skills @done(26-08-29 10:38)
+    ☐ ResumeViewer - NEXT
+        ✔ Resume Object @done(26-08-312:25)          
+        ✔ Put all the Object into the HTML @done(26-08-31 13:45)
+        ☐ Start conditionally rendering items that are not present
+          I think we can accomplish this by setting the info variables we made to just be equal to nothing. Or portions equal to nothing by making object copies and overwriting portions.
+          We should consider if we need to always create the full object, but leave portions blank or to simply not include parts of the object. I think the first will be easier, but we'll just have to test when we start going. For now just treat as if the parts can be empty
+        ☐ MAKE THE FORM WORK NEXT - NOT STYLING
+        Once the conditional rendering is done, we need to decide if we should go ahead and style everything, or if we need to make everything work first. I lean toward making it work first because styling is more fun and somewhat more annoying. We'll also be moving a bunch of stuff around when we're making it work, so the styling may get fucky and keeping up with it before hand will be annoying.
+          ☐ Get the drop downs working - this should be relatively easy.
+          ☐ Start on each separate form and add the needed functions there
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Archive:
+  ✔ On paper, figure out what components you're going to need for this @done(26-08-29 08:29) @project(Planning.Step 1 Break the UI into a component hiearchy)
+  ✔ Put those components into React functions and actually make the structure of the app happen. @done(26-08-29 08:29) @project(Planning.Step 1 Break the UI into a component hiearchy)
+    This does not have to be pretty yet. You can move them around so that they are at least stacked on each other correctly, but don't bother getting them to look nice yet. They may get moved around anyways.
+  ✔ CVForm component at the top to house all of the sections and control if a drop down is showing or not @done(26-08-28 10:10) @project(Planning.Step 1 Break the UI into a component hiearchy)
+  ✔ Make a DropDownSection component, pass in the body of it @done(26-08-29 08:29) @project(Planning.Step 1 Break the UI into a component hiearchy)
+    This would mean like youd name the DropDownSection "Personal Information" and then you'd pass in a PersonalInformationCard component into the body
+  ✔ Resume component @done(26-08-28 10:09) @project(Planning.Step 1 Break the UI into a component hiearchy)
+    House the resume items
+  ✔ Create the CVForm and the Resume component. Have them split the screen in two and be colored in. @done(26-08-28 10:08) @project(TODO)
+  ✔ Let's work on makinga drop down section card. Just the card mind, doesn't have to do any dropping for the moment. @done(26-08-28 11:18) @project(TODO)
+  ✔ From here I think we can just get the individual forms going. We can keep it pretty simple. We either have a full width input, or have a group of two inputs, with the space divided between. Each gets a label. May need to group inputs with their labels, then just use flex-column to arrange. @done(26-08-28 13:35) @project(TODO)

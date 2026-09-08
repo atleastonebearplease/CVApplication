@@ -62,7 +62,10 @@ export function PersonalInformationForm({ values, onFieldChange }) {
                 id="email-address" 
                 labelText="Email Address" 
                 placeholder="validemail@email.com" 
-                type="email">
+                type="email"
+                value={values.emailAddress}
+                onChange={(newValue) => onFieldChange("emailAddress", newValue)}
+                >
                 </LabelInputGroup>
                 <LabelInputGroup 
                 id="phone-number" 

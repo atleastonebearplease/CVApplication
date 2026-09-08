@@ -106,14 +106,16 @@ export function PersonalInformationForm({ values, onFieldChange }) {
     )
 }
 
-export function SummaryForm() {
+export function SummaryForm({values, onFieldChange}) {
     return (
         <div className="form-container">
             <LabelInputGroup
             id="summary"
             labelText="Summary"
             placeholder="Your objective, why you're a good fit, etc."
-            type="textarea">
+            type="textarea"
+            value={values.summary}
+            onChange={(newValue) => onFieldChange(newValue)}>
             </LabelInputGroup>
         </div>
     )

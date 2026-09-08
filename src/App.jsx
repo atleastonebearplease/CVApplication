@@ -33,7 +33,14 @@ function App() {
           onFieldChange={(field, value) => updateSection("personalInformation", field, value)}/>
         </DropDownSection>
         <DropDownSection sectionName="Summary"> 
-          <SummaryForm/>
+          <SummaryForm
+          values={resumeData.summary}
+          onFieldChange={(
+            (value) => setResumeData(prev => ({
+              ...prev,
+              summary: value
+            }))
+          )}/>
         </DropDownSection>
         <DropDownSection sectionName="Education"> 
           {/* //TODO: Update to use a unique ID for each created date input group as well as each created education 

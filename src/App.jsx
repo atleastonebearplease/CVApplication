@@ -3,7 +3,7 @@ import './App.css';
 import { CVForm, DropDownSection } from "./CVForm.jsx";
 import { Resume } from "./Resume.jsx";
 import { PersonalInformationForm, SummaryForm, EducationForm, WorkExperienceForm, SkillsForm} from "./Forms.jsx";
-import { resumeObject } from "./resumeObject.js";
+import { resumeObject, emptyResumeObject } from "./resumeObject.js";
 
 function App() {
   //TODO: Temporary variable for UUID for education
@@ -11,12 +11,27 @@ function App() {
   const workExperienceID = crypto.randomUUID();
   const skillsID = crypto.randomUUID();
 
+  const [fullName, setFullName] = useState("");
+  const [resumeData, setResumeData] = useState(emptyResumeObject);
+
+  function updateSection(sectionName, field, value) {
+    setResumeData(prev => ({
+      ...prev,
+      [sectionName]: {
+        ...prev[sectionName],
+        [field]: value
+      }
+    }));
+  }
+
   return (
     <>
     <div className="app-container">
       <CVForm>
         <DropDownSection sectionName="Personal Information">
-          <PersonalInformationForm/>
+          <PersonalInformationForm 
+          values={resumeData.personalInformation}
+          onFieldChange={(field, value) => updateSection("personalInformation", field, value)}/>
         </DropDownSection>
         <DropDownSection sectionName="Summary"> 
           <SummaryForm/>
@@ -35,7 +50,7 @@ function App() {
           <SkillsForm uniqueID={skillsID}></SkillsForm>
         </DropDownSection>
       </CVForm>
-      <Resume resumeData={resumeObject}>
+      <Resume resumeData={resumeData}>
       </Resume>
     </div>
     </>

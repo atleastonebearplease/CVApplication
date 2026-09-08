@@ -1,10 +1,14 @@
-function LabelInputGroup({id, labelText, placeholder="", type="text"}) {
+function LabelInputGroup({id, labelText, placeholder="", type="text", value, onChange}) {
     let input;
 
+    const controlledProps = onChange 
+    ? {value: value, onChange: (e) => onChange(e.target.value) }
+    : {};
+
     if(type === "textarea") {
-        input = <textarea id={id} placeholder={placeholder}></textarea>
+        input = <textarea id={id} placeholder={placeholder} {...controlledProps}></textarea>
     } else {
-        input = <input type={type} id={id} placeholder={placeholder}/>
+        input = <input type={type} id={id} placeholder={placeholder} {...controlledProps}/>
     }
     
     return (
@@ -42,13 +46,15 @@ function getLabelID(labelText, ID) {
     return labelText + "-" + ID;
 }
 
-export function PersonalInformationForm() {
+export function PersonalInformationForm({ values, onFieldChange }) {
     return (
         <div className="form-container">
             <LabelInputGroup 
             id="full-name" 
             labelText="Full Name" 
-            placeholder="John Doe">
+            placeholder="John Doe"
+            value={values.fullName}
+            onChange={(newValue) => onFieldChange("fullName", newValue)}>
             </LabelInputGroup>
 
             <div className="double-input-group-container">

@@ -20,16 +20,16 @@ TODO:
         ✔ Education @done(26-08-29 10:38)
         ✔ Work Experience @done(26-08-29 10:38)
         ✔ Skills @done(26-08-29 10:38)
-    ☐ ResumeViewer - NEXT
+    ✔ ResumeViewer - NEXT @done(26-09-08 12:21)
         ✔ Resume Object @done(26-08-312:25)          
         ✔ Put all the Object into the HTML @done(26-08-31 13:45)
-        ☐ Start conditionally rendering items that are not present
+        ✔ Start conditionally rendering items that are not present @done(26-09-08 12:22)
           I think we can accomplish this by setting the info variables we made to just be equal to nothing. Or portions equal to nothing by making object copies and overwriting portions.
           We should consider if we need to always create the full object, but leave portions blank or to simply not include parts of the object. I think the first will be easier, but we'll just have to test when we start going. For now just treat as if the parts can be empty
-        ☐ MAKE THE FORM WORK NEXT - NOT STYLING
-        Once the conditional rendering is done, we need to decide if we should go ahead and style everything, or if we need to make everything work first. I lean toward making it work first because styling is more fun and somewhat more annoying. We'll also be moving a bunch of stuff around when we're making it work, so the styling may get fucky and keeping up with it before hand will be annoying.
-          ☐ Get the drop downs working - this should be relatively easy.
-          ☐ Start on each separate form and add the needed functions there
+      ☐ MAKE THE FORM WORK NEXT - NOT STYLING
+        ☐ Make the full name input work
+        ☐ Get the drop downs working - this should be relatively easy.
+        ☐ Start on each separate form and add the needed functions there
     
 
 

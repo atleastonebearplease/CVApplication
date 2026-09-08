@@ -62,5 +62,29 @@ export const resumeObject = {
         "Javascript",
         "HTML"
     ]
+}
 
+export const emptyResumeObject = {
+    personalInformation: {
+        fullName: "",
+        emailAddress: "", 
+        phoneNumber: "",
+        location: "",
+        linkedInProfile: "", 
+        githubProfile: ""
+    },
+    summary: "",
+    educationInformation: {
+        schoolObjects: [
+          
+        ]
+    },
+    workExperience: {
+        workObjects: [
+
+        ]
+    },
+    skills: [
+
+    ]
 }

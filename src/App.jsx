@@ -11,7 +11,6 @@ function App() {
   const workExperienceID = crypto.randomUUID();
   const skillsID = crypto.randomUUID();
 
-  const [fullName, setFullName] = useState("");
   const [resumeData, setResumeData] = useState(emptyResumeObject);
 
   function updateSection(sectionName, field, value) {

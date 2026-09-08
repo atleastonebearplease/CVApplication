@@ -85,6 +85,6 @@ export const emptyResumeObject = {
         ]
     },
     skills: [
-
+        
     ]
 }

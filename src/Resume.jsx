@@ -1,15 +1,8 @@
-/* eslint-disable no-unused-vars */
 import "./resume.css";
 import { Fragment } from "react";
 import { joinWithPipes } from "./utilities.jsx";
 
 export function Resume({resumeData}) {
-
-    let resumeDeepCopy = structuredClone(resumeData);
-
-    let personalInfo = resumeDeepCopy.personalInformation;
-
-    //TEST CONDITIONAL RENDERS HERE
 
     
 //TODO: Add Keys to all objects upon creation
@@ -156,6 +149,11 @@ function WorkExperience({resumeData}) {
 
 function Skills({resumeData}) {
     if(resumeData.skills) {
+
+        if(resumeData.skills.length < 1) {
+            return null;
+        }
+
         return (
             <>
             <h1>Skills</h1>

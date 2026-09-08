@@ -71,13 +71,17 @@ export function PersonalInformationForm({ values, onFieldChange }) {
                 id="phone-number" 
                 labelText="Phone Number" 
                 placeholder="123-456-7890" 
-                type="number">
+                type="number"
+                value={values.phoneNumber}
+                onChange={(newValue) => onFieldChange("phoneNumber", newValue)}>
                 </LabelInputGroup>
             </div>
             <LabelInputGroup
             id="location"
             labelText="Location"
             placeholder="Nashville, TN"
+            value={values.location}
+            onChange={(newValue) => onFieldChange("location", newValue)}
             >
             </LabelInputGroup>
             <div className="double-input-group-container">
@@ -85,13 +89,17 @@ export function PersonalInformationForm({ values, onFieldChange }) {
                 id="linked-in-profile" 
                 labelText="LinkedIn Profile"
                 placeholder=""
-                type="url">
+                type="url"
+                value={values.linkedInProfile}
+                onChange={(newValue) => onFieldChange("linkedInProfile", newValue)}>
                 </LabelInputGroup>
                 <LabelInputGroup
                 id="github-profile"
                 labelText="Github Profile"
                 placeholder="github.com/myprofile"
-                type="url">
+                type="url"
+                value={values.githubProfile}
+                onChange={(newValue) => onFieldChange("githubProfile", newValue)}>
                 </LabelInputGroup>
             </div>
         </div>

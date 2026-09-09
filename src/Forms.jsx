@@ -154,6 +154,7 @@ export function EducationForm({ uniqueID }) {
             placeholder={"e.g.4.0 GPA\nSuma Cum Laude"}
             type="textarea">
             </LabelInputGroup>
+            <button>Remove Education</button>
         </div>
     )
 }

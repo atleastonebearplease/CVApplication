@@ -81,8 +81,8 @@ function Education({resumeData}) {
                     {school.degree && <h4>{school.degree}</h4>}
                     {school.achievements.length > 0 && (
                         <ul>
-                            {school.achievements.map((ach)=> {
-                                return (<li>{ach}</li>);
+                            {school.achievements.map((ach, index)=> {
+                                return (<li key={index}>{ach}</li>);
                             })}
                         </ul>
                     )}

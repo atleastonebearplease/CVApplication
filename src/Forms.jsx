@@ -23,7 +23,7 @@ function LabelInputGroup({id, labelText, placeholder="", type="text", value, onC
 /*  TODO: Convert this over to the regular input group. All you'd have to do is just include the label 
 tip portion. The label tip is useful elsewhere and could be included pretty easy
 */
-function DateInputGroup({ id, labelText, labelTip }) {
+function DateInputGroup({ id, labelText, labelTip, value, onChange}) {
     let label = labelText;
     
     //TODO: Update label tip to have it's own CSS class to control the sizing and vert align
@@ -36,7 +36,9 @@ function DateInputGroup({ id, labelText, labelTip }) {
             id={id}
             labelText={label}
             placeholder="" 
-            type="month">
+            type="month"
+            value={value}
+            onChange={onChange}>
             </LabelInputGroup>
         )
 }
@@ -121,40 +123,50 @@ export function SummaryForm({values, onFieldChange}) {
     )
 }
 
-export function EducationForm({ uniqueID }) {
+export function EducationForm({ values, onFieldChange, id }) {
     return (
         <div className="form-container">
             <LabelInputGroup 
-            id={getLabelID("school-name", uniqueID)}
+            id={getLabelID("school-name", id)}
             labelText="School Name" 
-            placeholder="e.g. Texas State University">
+            placeholder="e.g. Texas State University"
+            value={values.schoolName}
+            onChange={(newValue) => onFieldChange("schoolName", newValue)}>
             </LabelInputGroup>
             <div className="double-input-group-container">
                 <DateInputGroup
-                id={getLabelID("start-date", uniqueID)}
+                id={getLabelID("start-date", id)}
                 labelText = "Start Date"
+                value={values.startDate}
+                onChange={(newValue) => onFieldChange("startDate", newValue)}
                 >
                 </DateInputGroup>
                 <DateInputGroup
-                id={getLabelID("end-date", uniqueID)}
+                id={getLabelID("end-date", id)}
                 labelText = "End Date"
                 labelTip={<i style={{fontSize: "80%"}}>Leave blank for Present</i>}
+                value={values.endDate}
+                onChange={(newValue) => onFieldChange("endDate", newValue)}
                 >
                 </DateInputGroup>
             </div>
-            <LabelInputGroup 
-            id={getLabelID('degree', uniqueID)} 
+            <LabelInputGroup
+            id={getLabelID('degree', id)} 
             labelText="Degree / Program" 
-            placeholder="e.g. Bachelor's of Computer Science" 
+            placeholder="e.g. Bachelor's of Computer Science"
+            value={values.degree}
+            onChange={(newValue) => onFieldChange("degree", newValue)}
             >
             </LabelInputGroup>
             <LabelInputGroup 
-            id={getLabelID("achievements", uniqueID)} 
+            id={getLabelID("achievements", id)} 
             labelText="Achievements - New lines are new bullet points" 
             placeholder={"e.g.4.0 GPA\nSuma Cum Laude"}
-            type="textarea">
+            type="textarea"
+            value={values.achievements.join("\n")}
+            onChange={(newValue) => onFieldChange("achievements", newValue.split(/\r?\n/))}>
             </LabelInputGroup>
-            <button>Remove Education</button>
+            <button className="remove-education-button">Remove Education</button>
         </div>
     )
 }

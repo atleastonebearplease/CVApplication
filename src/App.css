@@ -64,6 +64,10 @@
   flex: 1 1 0;
 }
 
+.remove-education-button {
+  margin-left: auto;
+  padding: 0 var(--margin-m);
+}
 
 /* 
  I think we just need two CSS classes for this. Either it can be a div that divides the space evenly

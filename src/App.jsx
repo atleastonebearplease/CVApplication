@@ -11,7 +11,7 @@ function addNewEducation(resumeData) {
     educationInformation: {
       ...resumeData.educationInformation,
       schoolObjects: [
-        ...resume.educationInformation.schoolObjects,
+        ...resumeData.educationInformation.schoolObjects,
         {
           id: crypto.randomUUID(),
           schoolName: "",
@@ -23,9 +23,7 @@ function addNewEducation(resumeData) {
           ]
         }
       ]
-    }
-      
-    }
+    }    
   }
 }
 
@@ -45,6 +43,18 @@ function App() {
         [field]: value
       }
     }));
+  }
+
+  function updateArrayItem(sectionName, arrayKey, id, field, value) {
+    setResumeData(prev => ({
+      ...prev,
+      [sectionName]: {
+        ...prev[sectionName],
+        [arrayKey]: prev[sectionName][arrayKey].map(item => {
+          return item.id === id ? {...item, [field]: value} : item
+        })
+      }
+    }))
   }
 
   return (
@@ -69,6 +79,27 @@ function App() {
         <DropDownSection sectionName="Education"> 
           {/* //TODO: Update to use a unique ID for each created date input group as well as each created education 
           //section piece. For now we can pass it in and pass to the DateInputGroup as a prop */}
+
+          {/* Okay, so here we have to conditionally render the Education Forms. This means that we'll 
+          loop through the schoolObjects and create a new Education form for each. 
+          
+          In the education form, we'll need to be passing in the values so that the form values can be
+          set for each render.*/}
+
+          {resumeData.educationInformation.schoolObjects.map((school) => {
+            return (
+              <EducationForm
+              values={school}
+              onFieldChange={(field, value) => {
+                updateArrayItem("educationInformation", "schoolObjects", school.id, field, value);
+              }}
+              key={school.id}
+              id={school.id}
+              >
+              </EducationForm>
+            )
+          })}
+
           <button onClick={() => setResumeData(addNewEducation)}>Add Another Education</button>
 
             {/* 

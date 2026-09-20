@@ -76,15 +76,7 @@ export const emptyResumeObject = {
     summary: "",
     educationInformation: {
         schoolObjects: [
-            {
-                id: crypto.randomUUID(),
-                schoolName: "", 
-                startDate: "",
-                endDate: "",
-                degree: "",
-                achievements: [
-                ]
-            }
+
         ]
     },
     workExperience: {

@@ -1,7 +1,10 @@
-  TODO: 
+WORKING NOW:
+  ✔ Will also need to remove them. Can add to Education Form. (TRY TO WRITE YOURSELF) @done(26-09-20 09:40)
+
+
+TODO: 
     ☐ Remove the testing code from Resume.jsx
     ✔ Add functionality for creating new education forms. Make sure to include unique ID. @done(26-09-09 12:43)
-      ☐ Will also need to remove them. Can add to Education Form. (TRY TO WRITE YOURSELF)
     ☐ Write and try to understand the updated, as well as the add and remove school functions from Claude. 
     ☐ Get the drop downs working - this should be relatively easy.
     ☐ Start on each separate form and add the needed functions there
@@ -9,10 +12,6 @@
     Forms:
       ☐ Add the key when making new school objects
       ☐ Use the ID from the values argument to make the label ids rather than passing it in as a separate prop
-
-
-
-
 
         
   Later: 

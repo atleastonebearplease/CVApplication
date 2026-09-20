@@ -32,9 +32,14 @@
   border: 1px solid grey;
 }
 
-.drop-down-section > h1 {
+.drop-down-section__header-wrapper {
   border-bottom: 1px solid grey;
   padding: 0 var(--margin-xxs) var(--margin-s) var(--margin-xxs);
+  display: flex;
+}
+
+.drop-down-section__button {
+  margin-left: auto;
 }
 
 .form-container {

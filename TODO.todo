@@ -1,12 +1,13 @@
 WORKING NOW:
   ✔ Will also need to remove them. Can add to Education Form. (TRY TO WRITE YOURSELF) @done(26-09-20 09:40)
+  ☐ Get the drop downs working - this should be relatively easy.
+    ☐ Start with using CSS to make just one disappear
 
 
 TODO: 
     ☐ Remove the testing code from Resume.jsx
     ✔ Add functionality for creating new education forms. Make sure to include unique ID. @done(26-09-09 12:43)
     ☐ Write and try to understand the updated, as well as the add and remove school functions from Claude. 
-    ☐ Get the drop downs working - this should be relatively easy.
     ☐ Start on each separate form and add the needed functions there
 
     Forms:

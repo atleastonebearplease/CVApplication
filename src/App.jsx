@@ -34,6 +34,7 @@ function App() {
   const skillsID = crypto.randomUUID();
 
   const [resumeData, setResumeData] = useState(emptyResumeObject);
+  const [activePanel, setActivePanel] = useState(0);
 
   function updateSection(sectionName, field, value) {
     setResumeData(prev => ({
@@ -73,12 +74,19 @@ function App() {
     <>
     <div className="app-container">
       <CVForm>
-        <DropDownSection sectionName="Personal Information">
+        <DropDownSection 
+        sectionName="Personal Information"
+        isActive={activePanel === 0}
+        showPanel={() => setActivePanel(0)}>
           <PersonalInformationForm 
           values={resumeData.personalInformation}
           onFieldChange={(field, value) => updateSection("personalInformation", field, value)}/>
         </DropDownSection>
-        <DropDownSection sectionName="Summary"> 
+        <DropDownSection 
+        sectionName="Summary"
+        isActive={activePanel === 1}
+        showPanel={() => setActivePanel(1)}
+        > 
           <SummaryForm
           values={resumeData}
           onFieldChange={(
@@ -88,7 +96,11 @@ function App() {
             }))
           )}/>
         </DropDownSection>
-        <DropDownSection sectionName="Education"> 
+        <DropDownSection 
+        sectionName="Education"
+        isActive={activePanel === 2}
+        showPanel={() => setActivePanel(2)}
+        > 
           {resumeData.educationInformation.schoolObjects.map((school) => {
             return (
               <EducationForm
@@ -108,11 +120,18 @@ function App() {
 
           <button type="button" onClick={() => setResumeData(addNewEducation)}>Add Another Education</button>
         </DropDownSection>
-        <DropDownSection sectionName="Work Experience">
+        <DropDownSection 
+        sectionName="Work Experience"
+        isActive={activePanel === 3}
+        showPanel={() => setActivePanel(3)}
+        >
           <WorkExperienceForm uniqueID={workExperienceID}></WorkExperienceForm>
           <button>Add Another Work Experience</button>
         </DropDownSection>
-        <DropDownSection sectionName="Skills">
+        <DropDownSection 
+        sectionName="Skills"
+        isActive={activePanel === 4}
+        showPanel={() => setActivePanel(4)}>
           <SkillsForm uniqueID={skillsID}></SkillsForm>
         </DropDownSection>
       </CVForm>

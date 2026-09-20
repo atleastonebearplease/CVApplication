@@ -123,7 +123,7 @@ export function SummaryForm({values, onFieldChange}) {
     )
 }
 
-export function EducationForm({ values, onFieldChange, id }) {
+export function EducationForm({ values, onFieldChange, onRemoveButtonClick, id }) {
     return (
         <div className="form-container">
             <LabelInputGroup 
@@ -166,7 +166,7 @@ export function EducationForm({ values, onFieldChange, id }) {
             value={values.achievements.join("\n")}
             onChange={(newValue) => onFieldChange("achievements", newValue.split(/\r?\n/))}>
             </LabelInputGroup>
-            <button className="remove-education-button">Remove Education</button>
+            <button type="button" className="remove-education-button" onClick={onRemoveButtonClick}>Remove Education</button>
         </div>
     )
 }

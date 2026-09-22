@@ -27,6 +27,27 @@ function addNewEducation(resumeData) {
   }
 }
 
+function addNewWorkExperience(resumeData) {
+  return {
+    ...resumeData,
+    workExperience: {
+      ...resumeData.workExperience,
+      workObjects: [
+        ...resumeData.workExperience.workObjects,
+        {
+          companyName: "",
+          startDate: "",
+          endDate: "",
+          jobTitle: "",
+          responsibilities: [
+            
+          ]
+        }
+      ]
+    }
+  }
+}
+
 function App() {
   //TODO: Temporary variable for UUID for education
   const educationID = crypto.randomUUID();

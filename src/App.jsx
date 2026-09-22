@@ -53,7 +53,7 @@ function App() {
   //TODO: Temporary variable for UUID for education
   const skillsID = crypto.randomUUID();
 
-  const [resumeData, setResumeData] = useState(resumeObject);
+  const [resumeData, setResumeData] = useState(emptyResumeObject);
   const [activePanel, setActivePanel] = useState(0);
 
   function updateSection(sectionName, field, value) {
@@ -169,7 +169,27 @@ function App() {
         sectionName="Skills"
         isActive={activePanel === 4}
         showPanel={() => setActivePanel(4)}>
-          <SkillsForm uniqueID={skillsID}></SkillsForm>
+          <SkillsForm 
+          uniqueID={skillsID}
+          values={resumeData.skills}
+          onFieldChange={(
+            (value) => setResumeData(prev => ({
+              ...prev,
+              skills: value
+            }))
+          )}
+
+          //
+          // <SummaryForm
+          // values={resumeData}
+          // onFieldChange={(
+          //   (value) => setResumeData(prev => ({
+          //     ...prev,
+          //     summary: value
+          //   }))
+          // )}/>
+          //
+          ></SkillsForm>
         </DropDownSection>
       </CVForm>
       <Resume resumeData={resumeData}>

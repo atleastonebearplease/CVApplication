@@ -14,7 +14,7 @@ export function DropDownSection({ sectionName, children, isActive, showPanel}) {
     return (
         <div className="drop-down-section">
             <div className="drop-down-section__header-wrapper">
-                <h1>{sectionName}</h1>
+                <h1 onClick={showPanel}>{sectionName}</h1>
                 <button className="drop-down-section__button" onClick={showPanel}>
                     {isActive ? (<>&#9658;</>)
                     : (<>&#9660;</>)}

@@ -2,6 +2,7 @@ WORKING NOW:
   ✔ Will also need to remove them. Can add to Education Form. (TRY TO WRITE YOURSELF) @done(26-09-20 09:40)
   ✔ Get the drop downs working - this should be relatively easy. @done(26-09-22 10:25)
     ✔ Start with using CSS to make just one disappear @done(26-09-22 10:25)
+  ☐ Working on the Work Experience portion of the form and getting it to work
 
 
 TODO: 
@@ -11,12 +12,11 @@ TODO:
     ☐ Start on each separate form and add the needed functions there
 
     Forms:
-      ☐ Add the key when making new school objects
-      ☐ Use the ID from the values argument to make the label ids rather than passing it in as a separate prop
+      ✔ Add the key when making new school objects @done(26-09-22 10:41)
 
         
   Later: 
-    ☐ Use CryptoUUID when making a new education component
+    ✔ Use CryptoUUID when making a new education component @done(26-09-22 10:41)
     ☐ Update TextArea height in CSS to be at least three lines
     
 Archive:

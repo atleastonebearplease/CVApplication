@@ -27,10 +27,30 @@ function addNewEducation(resumeData) {
   }
 }
 
+function addNewWorkExperience(resumeData) {
+  return {
+    ...resumeData,
+    workExperience: {
+      ...resumeData.workExperience,
+      workObjects: [
+        ...resumeData.workExperience.workObjects,
+        {
+          id: crypto.randomUUID(),
+          companyName: "",
+          startDate: "",
+          endDate: "",
+          jobTitle: "",
+          responsibilities: [
+
+          ]
+        }
+      ]
+    }
+  }
+}
+
 function App() {
   //TODO: Temporary variable for UUID for education
-  const educationID = crypto.randomUUID();
-  const workExperienceID = crypto.randomUUID();
   const skillsID = crypto.randomUUID();
 
   const [resumeData, setResumeData] = useState(emptyResumeObject);
@@ -88,13 +108,26 @@ function App() {
         showPanel={() => setActivePanel(1)}
         > 
           <SummaryForm
-          values={resumeData}
+          values={resumeData.summary}
           onFieldChange={(
             (value) => setResumeData(prev => ({
               ...prev,
               summary: value
             }))
           )}/>
+{/* 
+          <SkillsForm 
+          uniqueID={skillsID}
+          values={resumeData.skills}
+          onFieldChange={(
+            (value) => setResumeData(prev => ({
+              ...prev,
+              skills: value
+            }))
+          )}
+          ></SkillsForm>
+*/}
+
         </DropDownSection>
         <DropDownSection 
         sectionName="Education"
@@ -125,14 +158,40 @@ function App() {
         isActive={activePanel === 3}
         showPanel={() => setActivePanel(3)}
         >
-          <WorkExperienceForm uniqueID={workExperienceID}></WorkExperienceForm>
-          <button>Add Another Work Experience</button>
+          {resumeData.workExperience.workObjects.map((work) => {
+            return (
+              <WorkExperienceForm
+              values={work}
+              onFieldChange={(field, value) => {
+                updateArrayItem("workExperience", "workObjects", work.id, field, value)
+              }}
+              key={work.id}
+              id={work.id}
+              onRemoveButtonClick={() => {
+                removeArrayObject("workExperience", "workObjects", work.id)
+              }}
+              >
+
+              </WorkExperienceForm>
+            )
+          })
+          }
+          <button type="button" onClick={() => setResumeData(addNewWorkExperience)}>Add Another Work Experience</button>
         </DropDownSection>
         <DropDownSection 
         sectionName="Skills"
         isActive={activePanel === 4}
         showPanel={() => setActivePanel(4)}>
-          <SkillsForm uniqueID={skillsID}></SkillsForm>
+          <SkillsForm 
+          uniqueID={skillsID}
+          values={resumeData.skills}
+          onFieldChange={(
+            (value) => setResumeData(prev => ({
+              ...prev,
+              skills: value
+            }))
+          )}
+          ></SkillsForm>
         </DropDownSection>
       </CVForm>
       <Resume resumeData={resumeData}>

@@ -116,11 +116,21 @@ export function SummaryForm({values, onFieldChange}) {
             labelText="Summary"
             placeholder="Your objective, why you're a good fit, etc."
             type="textarea"
-            value={values.summary}
-            onChange={(newValue) => onFieldChange(newValue)}>
+            value={values.join("\n")}
+            onChange={(newValue) => onFieldChange(newValue.split(/\r?\n/))}>
             </LabelInputGroup>
         </div>
     )
+
+    /* 
+            id={getLabelID("technical-skills", uniqueID)} 
+            labelText="Technical Skills - New lines are new bullet points" 
+            placeholder={"e.g.React\nJavascript"}
+            type="textarea"
+            values={values.join("\n")}
+            onChange={(newValue) => onFieldChange(newValue.split(/\r?\n/))}
+            >
+    */
 }
 
 export function EducationForm({ values, onFieldChange, onRemoveButtonClick, id }) {
@@ -166,57 +176,74 @@ export function EducationForm({ values, onFieldChange, onRemoveButtonClick, id }
             value={values.achievements.join("\n")}
             onChange={(newValue) => onFieldChange("achievements", newValue.split(/\r?\n/))}>
             </LabelInputGroup>
-            <button type="button" className="remove-education-button" onClick={onRemoveButtonClick}>Remove Education</button>
+            <button type="button" className="remove-button" onClick={onRemoveButtonClick}>Remove Education</button>
         </div>
     )
 }
 
-export function WorkExperienceForm({uniqueID}) {
+export function WorkExperienceForm({values, onFieldChange, onRemoveButtonClick, id}) {
     return (
          <div className="form-container">
             <LabelInputGroup 
-            id={getLabelID("company-name", uniqueID)} 
+            id={getLabelID("company-name", id)} 
             labelText="Company Name" 
-            placeholder="e.g. Apple inc" 
+            placeholder="e.g. Apple inc"
+            value={values.companyName}
+            onChange={(newValue) => onFieldChange("companyName", newValue)}
             >
             </LabelInputGroup>
             <div className="double-input-group-container">
                 <DateInputGroup
-                id={getLabelID("start-date", uniqueID)}
+                id={getLabelID("start-date", id)}
                 labelText = "Start Date"
+                value={values.startDate}
+                onChange={(newValue) => onFieldChange("startDate", newValue)}
                 >
                 </DateInputGroup>
                 <DateInputGroup
-                id={getLabelID("end-date", uniqueID)}
+                id={getLabelID("end-date", id)}
                 labelText = "End Date"
                 labelTip={<i style={{fontSize: "80%"}}>Leave blank for Present</i>}
+                onChange={(newValue) => onFieldChange("endDate", newValue)}
                 >
                 </DateInputGroup>
             </div>
             <LabelInputGroup
-            id={getLabelID("job-title", uniqueID)} 
+            id={getLabelID("job-title", id)} 
             labelText="Job Title" 
             placeholder="e.g. Senior Data Engineer"
+            value={values.jobTitle}
+            onChange={(newValue) => onFieldChange("jobTitle", newValue)}
             >
             </LabelInputGroup>
             <LabelInputGroup 
-            id={getLabelID("responsibilities", uniqueID)} 
+            id={getLabelID("responsibilities", id)} 
             labelText="Responsibilities - New lines are new bullet points" 
             placeholder={"e.g.Planning new features\nImplementing new features"}
-            type="textarea">
+            type="textarea"
+            value={values.responsibilities.join("\n")}
+            onChange={(newValue) => onFieldChange("responsibilities", newValue.split(/\r?\n/))}
+            >
             </LabelInputGroup>
+            <button type="button" className="remove-button" onClick={onRemoveButtonClick}>Remove Work Experience</button>
         </div>
+
+        /*             value={values.achievements.join("\n")}
+            onChange={(newValue) => onFieldChange("achievements", newValue.split(/\r?\n/))}> */
     )
 }
 
-export function SkillsForm({uniqueID}) {
+export function SkillsForm({values, onFieldChange, uniqueID}) {
     return (
         <div className="form-container">
             <LabelInputGroup 
             id={getLabelID("technical-skills", uniqueID)} 
             labelText="Technical Skills - New lines are new bullet points" 
             placeholder={"e.g.React\nJavascript"}
-            type="textarea">
+            type="textarea"
+            values={values.join("\n")}
+            onChange={(newValue) => onFieldChange(newValue.split(/\r?\n/))}
+            >
             </LabelInputGroup>
         </div>
     )

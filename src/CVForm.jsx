@@ -1,5 +1,3 @@
-import { Fragment } from 'react'
-
 export function CVForm({ children }) {
     return (
         <div className="cv-form">

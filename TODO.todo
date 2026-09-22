@@ -1,60 +1,42 @@
-Planning: 
-    Step 1 Break the UI into a component hiearchy: 
-        ✔ PersonalInformationForm @done(26-08-29 10:35)
-        ✔ SummaryForm @done(26-08-29 10:35)
-        ✔ EducationForm @done(26-08-29 10:35)
-        ✔ WorkExperienceForm @done(26-08-29 10:35)
-        ✔ SkillsForm @done(26-08-29 10:35)
+WORKING NOW:
+  ✔ Will also need to remove them. Can add to Education Form. (TRY TO WRITE YOURSELF) @done(26-09-20 09:40)
+  ✔ Get the drop downs working - this should be relatively easy. @done(26-09-22 10:25)
+    ✔ Start with using CSS to make just one disappear @done(26-09-22 10:25)
+  ☐ Working on the Work Experience portion of the form and getting it to work
 
-        Resume Viewer:
-        
-
-Later: 
-    ☐ Use CryptoUUID when making a new education component
-    ☐ Update TextArea height in CSS to be at least three lines
-    ☐ Add keys during object creation for mapped items 
 
 TODO: 
-    ✔ Fill out remaining forms: @done(26-08-29 10:38)
-        ✔ Summary @done(26-08-29 10:38)
-        ✔ Education @done(26-08-29 10:38)
-        ✔ Work Experience @done(26-08-29 10:38)
-        ✔ Skills @done(26-08-29 10:38)
-    ☐ ResumeViewer - NEXT
-        ✔ Resume Object @done(26-08-312:25)          
-        ✔ Put all the Object into the HTML @done(26-08-31 13:45)
-        ☐ Start conditionally rendering items that are not present
-          I think we can accomplish this by setting the info variables we made to just be equal to nothing. Or portions equal to nothing by making object copies and overwriting portions.
-          We should consider if we need to always create the full object, but leave portions blank or to simply not include parts of the object. I think the first will be easier, but we'll just have to test when we start going. For now just treat as if the parts can be empty
-        ☐ MAKE THE FORM WORK NEXT - NOT STYLING
-        Once the conditional rendering is done, we need to decide if we should go ahead and style everything, or if we need to make everything work first. I lean toward making it work first because styling is more fun and somewhat more annoying. We'll also be moving a bunch of stuff around when we're making it work, so the styling may get fucky and keeping up with it before hand will be annoying.
-          ☐ Get the drop downs working - this should be relatively easy.
-          ☐ Start on each separate form and add the needed functions there
+    ☐ Remove the testing code from Resume.jsx
+    ✔ Add functionality for creating new education forms. Make sure to include unique ID. @done(26-09-09 12:43)
+    ☐ Write and try to understand the updated, as well as the add and remove school functions from Claude. 
+    ☐ Start on each separate form and add the needed functions there
+
+    Forms:
+      ✔ Add the key when making new school objects @done(26-09-22 10:41)
+
+        
+  Later: 
+    ✔ Use CryptoUUID when making a new education component @done(26-09-22 10:41)
+    ☐ Update TextArea height in CSS to be at least three lines
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Archive:
+  ✔ PersonalInformationForm @done(26-08-29 10:35) @project(Planning.Step 1 Break the UI into a component hiearchy)
+  ✔ SummaryForm @done(26-08-29 10:35) @project(Planning.Step 1 Break the UI into a component hiearchy)
+  ✔ EducationForm @done(26-08-29 10:35) @project(Planning.Step 1 Break the UI into a component hiearchy)
+  ✔ WorkExperienceForm @done(26-08-29 10:35) @project(Planning.Step 1 Break the UI into a component hiearchy)
+  ✔ SkillsForm @done(26-08-29 10:35) @project(Planning.Step 1 Break the UI into a component hiearchy)
+  ✔ Make the full name input work @done(26-09-08 16:55) @project(TODO)
+  ✔ Fill out remaining forms: @done(26-08-29 10:38)
+  ✔ Summary @done(26-08-29 10:38)
+  ✔ Education @done(26-08-29 10:38)
+  ✔ Work Experience @done(26-08-29 10:38)
+  ✔ Skills @done(26-08-29 10:38)
+  ✔ ResumeViewer - NEXT @done(26-09-08 12:21)
+  ✔ Resume Object @done(26-08-312:25)          
+  ✔ Put all the Object into the HTML @done(26-08-31 13:45)
+  ✔ Start conditionally rendering items that are not present @done(26-09-08 12:22)
+    I think we can accomplish this by setting the info variables we made to just be equal to nothing. Or portions equal to nothing by making object copies and overwriting portions.
+    We should consider if we need to always create the full object, but leave portions blank or to simply not include parts of the object. I think the first will be easier, but we'll just have to test when we start going. For now just treat as if the parts can be empty
   ✔ On paper, figure out what components you're going to need for this @done(26-08-29 08:29) @project(Planning.Step 1 Break the UI into a component hiearchy)
   ✔ Put those components into React functions and actually make the structure of the app happen. @done(26-08-29 08:29) @project(Planning.Step 1 Break the UI into a component hiearchy)
     This does not have to be pretty yet. You can move them around so that they are at least stacked on each other correctly, but don't bother getting them to look nice yet. They may get moved around anyways.

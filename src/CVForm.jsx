@@ -6,13 +6,22 @@ export function CVForm({ children }) {
     )
 }
 
-//FIXME: WORK ON DROP DOWNS
-
-export function DropDownSection({ sectionName, children}) {
+export function DropDownSection({ sectionName, children, isActive, showPanel}) {
     return (
         <div className="drop-down-section">
-            <h1>{sectionName}</h1>  {/* //TODO: Add a div and a drop down icon that can change with clicks */}
-            {children}
+            <div className="drop-down-section__header-wrapper">
+                <h1 onClick={showPanel}>{sectionName}</h1>
+                <button className="drop-down-section__button" onClick={showPanel}>
+                    {isActive ? (<>&#9658;</>)
+                    : (<>&#9660;</>)}
+                    
+                    </button>
+            </div>
+            {isActive && (
+                <div className="drop-down-section__wrapper">
+                    {children}
+                </div>
+            )}
         </div>
     )
 }

@@ -1,18 +1,9 @@
-/* eslint-disable no-unused-vars */
 import "./resume.css";
 import { Fragment } from "react";
 import { joinWithPipes } from "./utilities.jsx";
 
 export function Resume({resumeData}) {
 
-    let resumeDeepCopy = structuredClone(resumeData);
-
-    let personalInfo = resumeDeepCopy.personalInformation;
-
-    //TEST CONDITIONAL RENDERS HERE
-
-    
-//TODO: Add Keys to all objects upon creation
     return (
         <div className="resume">
             <PersonalInfo resumeData={resumeData}/>
@@ -52,18 +43,22 @@ function PersonalInfo({resumeData}) {
 }
 
 function Summary({resumeData}) {
-    if(resumeData.summary) {
-        return (
-            <Fragment>
-                <h1>Summary</h1>
-                <ul>
-                    <li>{resumeData.summary}</li>
-                </ul>
-            </Fragment>
-        )
-    } else {
+    const summaryLines = (resumeData.summary ?? []).filter(Boolean);
+    
+    if(summaryLines.length < 1) {
         return null;
     }
+
+    return (
+        <Fragment>
+            <h1>Summary</h1>
+            <ul>
+                {resumeData.summary.map((line) => {
+                    return (<li>{line}</li>);
+                })}
+            </ul>
+        </Fragment>
+    )
 }
 
 function Education({resumeData}) {
@@ -76,8 +71,9 @@ function Education({resumeData}) {
         let schoolItems = [];
 
         for(let school of schools) {
+            const achievements = school.achievements.filter(Boolean);
+
             schoolItems.push(
-                //TODO: Add unique key per new school item
                 <Fragment>
                     {school.schoolName && <h3>{school.schoolName}</h3>}
                     {school.startDate && (
@@ -86,10 +82,10 @@ function Education({resumeData}) {
                         </p>
                     )}
                     {school.degree && <h4>{school.degree}</h4>}
-                    {school.achievements.length > 0 && (
+                    {achievements.length > 0 && (
                         <ul>
-                            {school.achievements.map((ach)=> {
-                                return (<li>{ach}</li>);
+                            {school.achievements.filter(Boolean).map((ach, index)=> {
+                                return (<li key={index}>{ach}</li>);
                             })}
                         </ul>
                     )}
@@ -115,15 +111,10 @@ function WorkExperience({resumeData}) {
     if(resumeDeepCopy.workExperience.workObjects.length > 0) {
         let workObjs = resumeDeepCopy.workExperience.workObjects;
 
-        /* 
-        //TODO: Just need flexbox and margin-left: auto to make dates stay to right
-         */
-
         let workExperienceItems = [];
 
         for(let workObj of workObjs) {
             workExperienceItems.push(
-                //TODO: Add unique key per new work item
                 <Fragment>
                     {workObj.companyName && <h3>{workObj.companyName}</h3>}
                     {workObj.startDate && (
@@ -155,18 +146,20 @@ function WorkExperience({resumeData}) {
 }
 
 function Skills({resumeData}) {
-    if(resumeData.skills) {
-        return (
-            <>
-            <h1>Skills</h1>
-                <ul>
-                    {resumeData.skills.map((skill) => {
-                        return (<li>{skill}</li>);
-                    })}
-                </ul>
-            </>
-        )
-    } else {
+    const skills = (resumeData.skills ?? []).filter(Boolean);
+    
+    if(skills.length < 1) {
         return null;
     }
+
+    return (
+        <>
+        <h1>Skills</h1>
+            <ul>
+                {resumeData.skills.map((skill) => {
+                    return (<li>{skill}</li>);
+                })}
+            </ul>
+        </>
+    )
 }

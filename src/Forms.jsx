@@ -19,14 +19,9 @@ function LabelInputGroup({id, labelText, placeholder="", type="text", value, onC
     )
 }
 
-
-/*  TODO: Convert this over to the regular input group. All you'd have to do is just include the label 
-tip portion. The label tip is useful elsewhere and could be included pretty easy
-*/
 function DateInputGroup({ id, labelText, labelTip, value, onChange}) {
     let label = labelText;
     
-    //TODO: Update label tip to have it's own CSS class to control the sizing and vert align
     if(labelTip) {
         label = <>{labelText} {labelTip}</>
     }

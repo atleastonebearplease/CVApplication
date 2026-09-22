@@ -6,8 +6,6 @@ export function CVForm({ children }) {
     )
 }
 
-//FIXME: WORK ON DROP DOWNS
-
 export function DropDownSection({ sectionName, children, isActive, showPanel}) {
     return (
         <div className="drop-down-section">

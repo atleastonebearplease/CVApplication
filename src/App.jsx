@@ -50,7 +50,6 @@ function addNewWorkExperience(resumeData) {
 }
 
 function App() {
-  //TODO: Temporary variable for UUID for education
   const skillsID = crypto.randomUUID();
 
   const [resumeData, setResumeData] = useState(emptyResumeObject);

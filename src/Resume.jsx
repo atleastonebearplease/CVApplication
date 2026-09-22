@@ -4,8 +4,6 @@ import { joinWithPipes } from "./utilities.jsx";
 
 export function Resume({resumeData}) {
 
-    
-//TODO: Add Keys to all objects upon creation
     return (
         <div className="resume">
             <PersonalInfo resumeData={resumeData}/>
@@ -61,12 +59,6 @@ function Summary({resumeData}) {
             </ul>
         </Fragment>
     )
-
-/* 
-                {resumeData.skills.map((skill) => {
-                    return (<li>{skill}</li>);
-                })}
-*/
 }
 
 function Education({resumeData}) {
@@ -82,7 +74,6 @@ function Education({resumeData}) {
             const achievements = school.achievements.filter(Boolean);
 
             schoolItems.push(
-                //TODO: Add unique key per new school item
                 <Fragment>
                     {school.schoolName && <h3>{school.schoolName}</h3>}
                     {school.startDate && (
@@ -120,15 +111,10 @@ function WorkExperience({resumeData}) {
     if(resumeDeepCopy.workExperience.workObjects.length > 0) {
         let workObjs = resumeDeepCopy.workExperience.workObjects;
 
-        /* 
-        //TODO: Just need flexbox and margin-left: auto to make dates stay to right
-         */
-
         let workExperienceItems = [];
 
         for(let workObj of workObjs) {
             workExperienceItems.push(
-                //TODO: Add unique key per new work item
                 <Fragment>
                     {workObj.companyName && <h3>{workObj.companyName}</h3>}
                     {workObj.startDate && (

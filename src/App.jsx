@@ -178,17 +178,6 @@ function App() {
               skills: value
             }))
           )}
-
-          //
-          // <SummaryForm
-          // values={resumeData}
-          // onFieldChange={(
-          //   (value) => setResumeData(prev => ({
-          //     ...prev,
-          //     summary: value
-          //   }))
-          // )}/>
-          //
           ></SkillsForm>
         </DropDownSection>
       </CVForm>

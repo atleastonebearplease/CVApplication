@@ -69,6 +69,8 @@ function Education({resumeData}) {
         let schoolItems = [];
 
         for(let school of schools) {
+            const achievements = school.achievements.filter(Boolean);
+
             schoolItems.push(
                 //TODO: Add unique key per new school item
                 <Fragment>
@@ -79,7 +81,7 @@ function Education({resumeData}) {
                         </p>
                     )}
                     {school.degree && <h4>{school.degree}</h4>}
-                    {school.achievements.length > 0 && (
+                    {achievements.length > 0 && (
                         <ul>
                             {school.achievements.filter(Boolean).map((ach, index)=> {
                                 return (<li key={index}>{ach}</li>);
@@ -148,23 +150,20 @@ function WorkExperience({resumeData}) {
 }
 
 function Skills({resumeData}) {
-    if(resumeData.skills) {
-
-        if(resumeData.skills.length < 1) {
-            return null;
-        }
-
-        return (
-            <>
-            <h1>Skills</h1>
-                <ul>
-                    {resumeData.skills.map((skill) => {
-                        return (<li>{skill}</li>);
-                    })}
-                </ul>
-            </>
-        )
-    } else {
+    const skills = (resumeData.skills ?? []).filter(Boolean);
+    
+    if(skills.length < 1) {
         return null;
     }
+
+    return (
+        <>
+        <h1>Skills</h1>
+            <ul>
+                {resumeData.skills.map((skill) => {
+                    return (<li>{skill}</li>);
+                })}
+            </ul>
+        </>
+    )
 }

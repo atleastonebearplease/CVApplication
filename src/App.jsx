@@ -108,13 +108,26 @@ function App() {
         showPanel={() => setActivePanel(1)}
         > 
           <SummaryForm
-          values={resumeData}
+          values={resumeData.summary}
           onFieldChange={(
             (value) => setResumeData(prev => ({
               ...prev,
               summary: value
             }))
           )}/>
+{/* 
+          <SkillsForm 
+          uniqueID={skillsID}
+          values={resumeData.skills}
+          onFieldChange={(
+            (value) => setResumeData(prev => ({
+              ...prev,
+              skills: value
+            }))
+          )}
+          ></SkillsForm>
+*/}
+
         </DropDownSection>
         <DropDownSection 
         sectionName="Education"

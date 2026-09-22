@@ -45,18 +45,28 @@ function PersonalInfo({resumeData}) {
 }
 
 function Summary({resumeData}) {
-    if(resumeData.summary) {
-        return (
-            <Fragment>
-                <h1>Summary</h1>
-                <ul>
-                    <li>{resumeData.summary}</li>
-                </ul>
-            </Fragment>
-        )
-    } else {
+    const summaryLines = (resumeData.summary ?? []).filter(Boolean);
+    
+    if(summaryLines.length < 1) {
         return null;
     }
+
+    return (
+        <Fragment>
+            <h1>Summary</h1>
+            <ul>
+                {resumeData.summary.map((line) => {
+                    return (<li>{line}</li>);
+                })}
+            </ul>
+        </Fragment>
+    )
+
+/* 
+                {resumeData.skills.map((skill) => {
+                    return (<li>{skill}</li>);
+                })}
+*/
 }
 
 function Education({resumeData}) {

@@ -116,11 +116,21 @@ export function SummaryForm({values, onFieldChange}) {
             labelText="Summary"
             placeholder="Your objective, why you're a good fit, etc."
             type="textarea"
-            value={values.summary}
-            onChange={(newValue) => onFieldChange(newValue)}>
+            value={values.join("\n")}
+            onChange={(newValue) => onFieldChange(newValue.split(/\r?\n/))}>
             </LabelInputGroup>
         </div>
     )
+
+    /* 
+            id={getLabelID("technical-skills", uniqueID)} 
+            labelText="Technical Skills - New lines are new bullet points" 
+            placeholder={"e.g.React\nJavascript"}
+            type="textarea"
+            values={values.join("\n")}
+            onChange={(newValue) => onFieldChange(newValue.split(/\r?\n/))}
+            >
+    */
 }
 
 export function EducationForm({ values, onFieldChange, onRemoveButtonClick, id }) {
@@ -166,20 +176,12 @@ export function EducationForm({ values, onFieldChange, onRemoveButtonClick, id }
             value={values.achievements.join("\n")}
             onChange={(newValue) => onFieldChange("achievements", newValue.split(/\r?\n/))}>
             </LabelInputGroup>
-            <button type="button" className="remove-education-button" onClick={onRemoveButtonClick}>Remove Education</button>
+            <button type="button" className="remove-button" onClick={onRemoveButtonClick}>Remove Education</button>
         </div>
     )
 }
 
 export function WorkExperienceForm({values, onFieldChange, onRemoveButtonClick, id}) {
-    /*             
-            <LabelInputGroup 
-            id={getLabelID("school-name", id)}
-            labelText="School Name" 
-            placeholder="e.g. Texas State University"
-            value={values.schoolName}
-            onChange={(newValue) => onFieldChange("schoolName", newValue)}>
-            </LabelInputGroup> */
     return (
          <div className="form-container">
             <LabelInputGroup 

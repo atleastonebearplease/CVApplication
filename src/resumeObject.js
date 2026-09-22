@@ -73,7 +73,9 @@ export const emptyResumeObject = {
         linkedInProfile: "", 
         githubProfile: ""
     },
-    summary: "",
+    summary: [
+        
+    ],
     educationInformation: {
         schoolObjects: [
 
